@@ -60,3 +60,7 @@ function s:PassiveVoice()
     let to_match = '\c\v(' . s:passive_auxiliaries . ')\v([ \t\n]+)\c\v(' . s:passive_verbs . ')'
     let s:m_passive_voices = matchadd('Error', to_match)
 endfunc
+
+function s:DetectDuplicates()
+    let s:m_duplicates=matchadd('Error', '\v(<\w+>)\_s*<\1>')
+endfunction
