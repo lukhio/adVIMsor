@@ -35,3 +35,18 @@ if exists('g:loaded_advimsor')
   finish
 endif
 let g:loaded_advimsor= 1
+
+function! s:LoadListFromFile(filename)
+    let list = readfile(filename)
+    let outlist = list[0]
+
+    for word in list[1:]
+        outlist = outlist . '|' . word
+    endfor
+
+    return outlist
+endfunc
+
+let s:weasels = s:LoadListFromFile('lib/weasel_words.txt')
+let s:passive_verbs = s:LoadListFromFile('lib/passive_verbs.txt')
+let s:passive_auxiliaries = s:LoadListFromFile('lib/passive_auxiliaries.txt')
