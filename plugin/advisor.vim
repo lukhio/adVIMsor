@@ -50,3 +50,13 @@ endfunc
 let s:weasels = s:LoadListFromFile('lib/weasel_words.txt')
 let s:passive_verbs = s:LoadListFromFile('lib/passive_verbs.txt')
 let s:passive_auxiliaries = s:LoadListFromFile('lib/passive_auxiliaries.txt')
+
+function s:WeaselWords()
+    let to_match = '\c\v' . s:weasels
+    let s:m_weasels = matchadd('Error', to_match)
+endfunc
+
+function s:PassiveVoice()
+    let to_match = '\c\v(' . s:passive_auxiliaries . ')\v([ \t\n]+)\c\v(' . s:passive_verbs . ')'
+    let s:m_passive_voices = matchadd('Error', to_match)
+endfunc
