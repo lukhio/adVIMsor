@@ -51,16 +51,31 @@ let s:weasels = s:LoadListFromFile('lib/weasel_words.txt')
 let s:passive_verbs = s:LoadListFromFile('lib/passive_verbs.txt')
 let s:passive_auxiliaries = s:LoadListFromFile('lib/passive_auxiliaries.txt')
 
-function s:WeaselWords()
+function! s:WeaselWords()
     let to_match = '\c\v' . s:weasels
     let s:m_weasels = matchadd('Error', to_match)
 endfunc
 
-function s:PassiveVoice()
+function! s:PassiveVoice()
     let to_match = '\c\v(' . s:passive_auxiliaries . ')\v([ \t\n]+)\c\v(' . s:passive_verbs . ')'
     let s:m_passive_voices = matchadd('Error', to_match)
 endfunc
 
-function s:DetectDuplicates()
+function! s:DetectDuplicates()
     let s:m_duplicates=matchadd('Error', '\v(<\w+>)\_s*<\1>')
 endfunction
+
+function! s:Enable()
+    call s:WeaselWords()
+    call s:PassiveVoice()
+    call s:DetectDuplicates()
+endfunc
+
+function! s:Disable()
+    call matchdelete(s:m_weasels)
+    call matchdelete(s:m_passive_voices)
+    call matchdelete(s:m_duplicates)
+endfunc
+
+command! AdVIMsorEnable call s:Enable()
+command! AdVIMsorDisable call s:Disable()
