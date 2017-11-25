@@ -52,16 +52,16 @@ let s:passive_auxiliaries = s:LoadListFromFile(s:path . 'lib/passive_auxiliaries
 
 function! s:WeaselWords()
     let to_match = '\c\v' . s:weasels
-    let s:m_weasels = matchadd('Error', to_match)
+    let s:m_weasels = matchadd('QuickFixLine', to_match)
 endfunc
 
 function! s:PassiveVoice()
     let to_match = '\c\v(' . s:passive_auxiliaries . ')\v([ \t\n]+)\c\v(\w+ed|' . s:passive_verbs . ')'
-    let s:m_passive_voices = matchadd('Error', to_match)
+    let s:m_passive_voices = matchadd('QuickFixLine', to_match)
 endfunc
 
 function! s:DetectDuplicates()
-    let s:m_duplicates=matchadd('Error', '\v(<\w+>)\_s*<\1>')
+    let s:m_duplicates=matchadd('QuickFixLine', '\v(<\w+>)\_s*<\1>')
 endfunction
 
 function! s:Enable()
