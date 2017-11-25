@@ -38,11 +38,7 @@ let g:loaded_advimsor= 1
 
 function! s:LoadListFromFile(filename)
     let list = readfile(a:filename)
-    let outlist = string(list[0])
-
-    for item in list[1:]
-        outlist .= ('|' . item)
-    endfor
+    let outlist = join(split(list), '|')
 
     return outlist
 endfunc
