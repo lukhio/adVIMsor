@@ -37,8 +37,7 @@ endif
 let g:loaded_advimsor= 1
 
 function! s:LoadListFromFile(filename)
-    let list = readfile(a:filename)
-    let outlist = join(split(list), '|')
+    let outlist = join(readfile(a:filename), '|')
 
     return outlist
 endfunc
