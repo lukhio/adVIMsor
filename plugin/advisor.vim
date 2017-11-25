@@ -49,7 +49,7 @@ endfunc
 
 
 " Get absolute path to the script
-let s:path = expand('<sfile>:p:h')
+let s:path = expand('<sfile>:p:h') . '/'
 
 let s:weasels = s:LoadListFromFile(s:path . 'lib/weasel_words.txt')
 let s:passive_verbs = s:LoadListFromFile(s:path . 'lib/passive_verbs.txt')
