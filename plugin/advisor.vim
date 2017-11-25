@@ -40,8 +40,8 @@ function! s:LoadListFromFile(filename)
     let list = readfile(a:filename)
     let outlist = string(list[0])
 
-    for word in list[1:]
-        outlist = outlist . "|" . string(word)
+    for item in list[1:]
+        outlist .= ('|' . item)
     endfor
 
     return outlist
