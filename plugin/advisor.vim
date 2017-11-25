@@ -41,7 +41,7 @@ function! s:LoadListFromFile(filename)
     let outlist = list[0]
 
     for word in list[1:]
-        outlist = outlist . '|' . word
+        outlist = outlist . "|" . word
     endfor
 
     return outlist
