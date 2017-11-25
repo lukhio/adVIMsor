@@ -38,10 +38,10 @@ let g:loaded_advimsor= 1
 
 function! s:LoadListFromFile(filename)
     let list = readfile(a:filename)
-    let outlist = list[0]
+    let outlist = string(list[0])
 
     for word in list[1:]
-        outlist = outlist . "|" . word
+        outlist = outlist . "|" . string(word)
     endfor
 
     return outlist
