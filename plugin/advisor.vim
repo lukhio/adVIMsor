@@ -37,7 +37,7 @@ endif
 let g:loaded_advimsor= 1
 
 function! s:LoadListFromFile(filename)
-    let list = readfile(filename)
+    let list = readfile(a:filename)
     let outlist = list[0]
 
     for word in list[1:]
