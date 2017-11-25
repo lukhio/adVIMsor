@@ -56,7 +56,7 @@ function! s:WeaselWords()
 endfunc
 
 function! s:PassiveVoice()
-    let to_match = '\c\v(' . s:passive_auxiliaries . ')\v([ \t\n]+)\c\v(' . s:passive_verbs . ')'
+    let to_match = '\c\v(' . s:passive_auxiliaries . ')\v([ \t\n]+)\c\v(\w+ed' . s:passive_verbs . ')'
     let s:m_passive_voices = matchadd('Error', to_match)
 endfunc
 
