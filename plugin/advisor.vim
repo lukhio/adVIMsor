@@ -47,6 +47,21 @@ endfunc
 
 " Count the syllables of a word
 function! s:CountSyllables(word)
+    let i = 0
+    let result = 0
+
+    while i < strlen(a:word)
+        if strpart(a:word, i, 1) =~? '[aeiouy]'
+            let result += 1
+        endif
+        let i += 1
+    endwhile
+
+    if strpart(a:word, strlen(a:word) - 2, 2) =~? '[\<es\>|\<ed\>|\<.e\>]'
+        echom strpart(a:word, strlen(a:word) - 2, 2) . " matched"
+        let result -= 1
+    endif
+    return result
 endfunc
 
 """ Data
