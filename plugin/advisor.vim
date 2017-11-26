@@ -45,6 +45,29 @@ function! s:LoadListFromFile(filename)
     return outlist
 endfunc
 
+" Count the sentences in the text
+function s:CountSentences()
+    let result = 0
+    while search('[\.!?]', 'W')
+        let result += 1
+    endwhile
+    echom result
+    return result
+endfunc
+
+" Count the number of words
+" This function excludes words that starts with a blackslash to avoid counting
+" LaTeX commands, as well as macro arguments and keywords. It will still count
+" some, such as TikZ commands.
+function s:CountWords()
+    let result = 0
+    while search('\(^\|[^\\#\k]\)\zs\<\w\+\>', 'W')
+        let result += 1
+    endwhile
+    echom result
+    return result
+endfunc
+
 " Count the syllables of a word
 function! s:CountSyllables(word)
     let i = 0
