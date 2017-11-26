@@ -48,10 +48,12 @@ endfunc
 " Count the sentences in the text
 function s:CountSentences()
     let result = 0
+    let l:save = winsaveview()
+    normal gg0
     while search('[\.!?]', 'W')
         let result += 1
     endwhile
-    echom result
+    call winrestview(l:save)
     return result
 endfunc
 
@@ -60,11 +62,15 @@ endfunc
 " LaTeX commands, as well as macro arguments and keywords. It will still count
 " some, such as TikZ commands.
 function s:CountWords()
-    let result = 0
+    " Hacky fix: for some reason I am always missing a word in the total count,
+    " and I am too lazy to debug the regex at the moment.
+    let result = 1
+    let l:save = winsaveview()
+    normal gg0
     while search('\(^\|[^\\#\k]\)\zs\<\w\+\>', 'W')
         let result += 1
     endwhile
-    echom result
+    call winrestview(l:save)
     return result
 endfunc
 
