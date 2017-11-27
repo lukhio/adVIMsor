@@ -1,5 +1,5 @@
-" A simple plugin to look for key mapping conflicts in Vim
-" Copyright 2016-2017 Julien Gamba <julien@jgamba.eu>
+" A simple plugin improve your writing quality and productivity
+" Copyright 2017 Julien Gamba <julien@jgamba.eu>
 
 " Permission is hereby granted, free of charge, to any person obtaining a copy of
 " this software and associated documentation files (the 'Software'), to deal in
@@ -26,7 +26,7 @@
 " Version: 0.1
 "
 " A plugin to help you write better. Inspired by Matt Might's scripts to
-" improve writing productivity.
+" improve writing quality and productivity.
 "
 " http://matt.might.net/articles/shell-scripts-for-passive-voice-weasel-words-duplicates/
 "==============================================================================
