@@ -1,0 +1,55 @@
+*advimsor*                      Improve your writing quality and productivity
+
+=============================================================================
+CONTENTS                                                   *AdVIMsorContents*
+
+    1. Intro ................................................ |AdVIMsorIntro|
+    2. Usage ................................................ |AdVIMsorUsage|
+    3. License ............................................ |AdVIMsorLicense|
+    4. Contributing .................................. |AdVIMsorContributing|
+
+=============================================================================
+INTRO                                                         *AdVIMsorIntro*
+
+AdVIMsor is an implementation of Matt Might's scripts to improve the quality
+of your writing. It detects the usage of weasel words, of passive voice usage
+and word duplicates. The list of words and verbs for the two first functions
+are located in "plugin/lib" at the moment. Each file should have one word by
+line.
+
+In addition to these three features, adVIMsor can compute the Flesch reading
+ease score of the current buffer, as well as its Flesch-Kincaid grade level.
+
+=============================================================================
+USAGE                                                         *AdVIMsorUsage*
+
+To enable Matt Might scripts:
+
+    :AdVIMsorEnable
+
+This command will highlight the words that you should look at. To disable the
+detection:
+
+    :AdVIMsorDisable
+
+To Compute the Flesch reading ease score or the Flesch-Kincaid grade level,
+use:
+
+    :AdVIMsorFleschScore
+    :AdVIMsorFleschKincaidScore
+
+Your score will be echoed as a message.
+
+=============================================================================
+LICENSE                                                     *AdVIMsorLicense*
+
+This plugin is released under the MIT license. A copy of the license is
+present in the LICENSE file.
+
+=============================================================================
+CONTRIBUTING                                           *AdVIMsorContributing*
+
+Patches can be sent at julien AT jgamba DOT eu. Any other kind of feedback is
+welcome.
+
+vim: tw=78
