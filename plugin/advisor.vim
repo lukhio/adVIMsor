@@ -138,9 +138,9 @@ function! s:FleschKincaidGradeLevel()
     let nbSentences = s:CountSentences() * 1.0
     let nbWords = s:CountWords() * 1.0
     let nbSyllables = s:CountAllSyllables() * 1.0
-    let score = 0.39 - (nbWords / nbSentences) + 11.8 (nbSyllables / nbWords) - 15.59
+    let score = 0.39 * (nbWords / nbSentences) + 11.8 * (nbSyllables / nbWords) - 15.59
 
-    echom 'Grade level: ' . score
+    echom 'Flesch-Kincaid grade level: ' . string(score)
 endfunc
 
 """ Data
