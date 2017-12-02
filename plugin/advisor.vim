@@ -1,15 +1,15 @@
 " A simple plugin improve your writing quality and productivity
 " Copyright 2017 Julien Gamba <julien@jgamba.eu>
 
-" Permission is hereby granted, free of charge, to any person obtaining a copy of
-" this software and associated documentation files (the 'Software'), to deal in
-" the Software without restriction, including without limitation the rights to
-" use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-" of the Software, and to permit persons to whom the Software is furnished to do
-" so, subject to the following conditions:
+" Permission is hereby granted, free of charge, to any person obtaining a copy
+" of this software and associated documentation files (the 'Software'), to deal
+" in the Software without restriction, including without limitation the rights
+" to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+" copies of the Software, and to permit persons to whom the Software is
+" furnished to do so, subject to the following conditions:
 
-" The above copyright notice and this permission notice shall be included in all
-" copies or substantial portions of the Software.
+" The above copyright notice and this permission notice shall be included in
+" all copies or substantial portions of the Software.
 
 " THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 " IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -113,7 +113,8 @@ function! s:FleschReadingEase()
     let nbSentences = s:CountSentences() * 1.0
     let nbWords = s:CountWords() * 1.0
     let nbSyllables = s:CountAllSyllables() * 1.0
-    let score = 206.835 - 1.015 * (nbWords / nbSentences) - 84.6 * (nbSyllables / nbWords)
+    let score = 206.835 - 1.015 * (nbWords / nbSentences) -
+                \ 84.6 * (nbSyllables / nbWords)
 
     if score >= 90.0
         echom 'Score: ' . string(score) . '. Very easy to read.'
@@ -165,7 +166,8 @@ endfunc
 
 " Detect passive voice
 function! s:PassiveVoice()
-    let to_match = '\c\v(' . s:passive_auxiliaries . ')\v([ \t\n]+)\c\v(\w+ed|' . s:passive_verbs . ')'
+    let to_match = '\c\v(' . s:passive_auxiliaries . ')\v([ \t\n]+)\c\v(\w+ed|'
+                \ . s:passive_verbs . ')'
     let s:m_passive_voices = matchadd('QuickFixLine', to_match)
 endfunc
 
