@@ -6,3 +6,6 @@ is
 been
 was
 be
+have
+has
+had
