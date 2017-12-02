@@ -138,19 +138,23 @@ function! s:FleschKincaidGradeLevel()
     let nbSentences = s:CountSentences() * 1.0
     let nbWords = s:CountWords() * 1.0
     let nbSyllables = s:CountAllSyllables() * 1.0
-    let score = 0.39 * (nbWords / nbSentences) + 11.8 * (nbSyllables / nbWords) - 15.59
+    let score = 0.39 * (nbWords / nbSentences) +
+                \ 11.8 * (nbSyllables / nbWords) - 15.59
 
     echom 'Flesch-Kincaid grade level: ' . string(score)
 endfunc
 
 """ Data
 " Get absolute path to the script
-let s:path = expand('<sfile>:p:h') . '/'
+let s:path = expand('<sfile>:p:h') . '/../'
 
 " Load all words to match
-let s:weasels = s:LoadListFromFile(s:path . 'lib/weasel_words.txt')
-let s:passive_verbs = s:LoadListFromFile(s:path . 'lib/passive_verbs.txt')
-let s:passive_auxiliaries = s:LoadListFromFile(s:path . 'lib/passive_auxiliaries.txt')
+let s:weasels = s:LoadListFromFile(s:path .
+            \ 'assets/weasel_words.txt')
+let s:passive_verbs = s:LoadListFromFile(s:path .
+            \ 'assets/passive_verbs.txt')
+let s:passive_auxiliaries = s:LoadListFromFile(s:path .
+            \ 'assets/passive_auxiliaries.txt')
 
 """ Detection functions
 " Detect weasel words
